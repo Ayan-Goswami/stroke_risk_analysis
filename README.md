@@ -30,6 +30,47 @@ Stroke Prediction Healthcare Dataset
 * Non-Stroke Cases: 4,861
 * Stroke Prevalence: 4.87%
 
+## Key Findings
+
+### Stroke Distribution
+
+Out of 5,110 patient records:
+
+* 4,861 patients (95.13%) did not experience a stroke
+* 249 patients (4.87%) experienced a stroke
+
+### Age and Stroke Risk
+
+Average age by stroke status:
+
+| Stroke Status | Average Age |
+| ------------- | ----------- |
+| No Stroke     | 41.97 years |
+| Stroke        | 67.73 years |
+
+Patients who experienced a stroke were significantly older on average, suggesting age is a major risk factor.
+
+### Hypertension and Stroke
+
+| Hypertension | Patients | Stroke Cases |
+| ------------ | -------- | ------------ |
+| No           | 4,612    | 183          |
+| Yes          | 498      | 66           |
+
+Although only 498 patients had hypertension, they accounted for 66 stroke cases. This suggests hypertension may be strongly associated with increased stroke risk.
+
+### Smoking Status Distribution
+
+| Smoking Status  | Patients |
+| --------------- | -------- |
+| Never Smoked    | 1,892    |
+| Unknown         | 1,544    |
+| Formerly Smoked | 885      |
+| Smokes          | 789      |
+
+Most patients reported never smoking, while a large number of records contained unknown smoking status values.
+
+
 ## Current Progress
 
 ✅ PostgreSQL database created
