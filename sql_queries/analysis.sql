@@ -1,21 +1,22 @@
 -- Clinical Trial Data Analysis Queries
 -- Clinical Trial Data Analysis
 
-SELECT *
-FROM clinical_trials;
+-- Dataset Overview
+SELECT COUNT(*) FROM stroke_data;
 
-SELECT COUNT(*)
-FROM clinical_trials;
+-- Stroke Distribution
+SELECT stroke, COUNT(*)
+FROM stroke_data
+GROUP BY stroke;
 
-SELECT AVG(age)
-FROM clinical_trials;
+-- Average Age by Stroke Status
+SELECT stroke,
+       ROUND(AVG(age),2)
+FROM stroke_data
+GROUP BY stroke;
 
-SELECT treatment_group,
-       COUNT(*) AS patients
-FROM clinical_trials
-GROUP BY treatment_group;
-
-SELECT outcome,
-       COUNT(*) AS total
-FROM clinical_trials
-GROUP BY outcome;
+-- Smoking Status Distribution
+SELECT smoking_status,
+       COUNT(*)
+FROM stroke_data
+GROUP BY smoking_status;
