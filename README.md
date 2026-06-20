@@ -70,6 +70,15 @@ Although only 498 patients had hypertension, they accounted for 66 stroke cases.
 
 Most patients reported never smoking, while a large number of records contained unknown smoking status values.
 
+### Gender and Stroke Risk
+
+| Gender | Stroke Cases | Total Patients | Stroke Rate |
+|----------|----------:|----------:|----------:|
+| Male | 108 | 2115 | 5.11% |
+| Female | 141 | 2994 | 4.71% |
+
+Although females represented a larger proportion of the dataset, males showed a slightly higher stroke rate (5.11% vs 4.71%).
+
 
 ## Current Progress
 
