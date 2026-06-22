@@ -1,180 +1,242 @@
-# Clinical Trial Data Analysis
+# Stroke Risk Analysis Using SQL and PostgreSQL
 
 ## Project Overview
 
-This project analyzes clinical trial data using SQL and PostgreSQL to identify trends in patient demographics, treatment effectiveness, and clinical outcomes.
+This project analyzes a real-world healthcare dataset containing 5,110 patient records to identify factors associated with stroke occurrence.
 
-## Dataset
+Using PostgreSQL and SQL, the project explores relationships between demographic characteristics, lifestyle factors, medical conditions, and stroke outcomes. The objective is to demonstrate practical SQL skills while generating meaningful healthcare insights from real patient data.
+
+---
+
+## Business Problem
+
+Stroke remains one of the leading causes of disability and death worldwide. Understanding which patient groups are at the highest risk can help healthcare providers prioritize screening and preventive interventions.
+
+This analysis investigates:
+
+* Which age groups are most vulnerable to stroke
+* Whether hypertension and heart disease increase stroke risk
+* The relationship between smoking history and stroke prevalence
+* Differences in stroke occurrence across genders
+* The influence of glucose levels on stroke outcomes
+
+---
+
+## Dataset Information
+
+### Dataset
 
 Stroke Prediction Healthcare Dataset
 
-### Features
+### Source
+
+Kaggle Healthcare Dataset
+
+### Dataset Size
+
+* Total Records: 5,110
+* Stroke Cases: 249
+* Non-Stroke Cases: 4,861
+
+### Features Used
 
 * Age
 * Gender
 * Hypertension
 * Heart Disease
 * Smoking Status
-* BMI
 * Average Glucose Level
+* Residence Type
 * Stroke Outcome
 
-### Dataset Size
+---
 
-* 5,110 patient records
+## Tools & Technologies
 
-## Initial Findings
+* PostgreSQL
+* SQL
+* pgAdmin 4
+* GitHub
 
-* Total Patients: 5,110
-* Stroke Cases: 249
-* Non-Stroke Cases: 4,861
-* Stroke Prevalence: 4.87%
+---
+
+## SQL Skills Demonstrated
+
+This project applies:
+
+* Data Import and Cleaning
+
+* Aggregate Functions
+
+  * COUNT()
+  * SUM()
+  * AVG()
+  * ROUND()
+
+* Conditional Logic
+
+  * CASE Statements
+
+* Grouping and Segmentation
+
+  * GROUP BY
+
+* Sorting and Ranking
+
+  * ORDER BY
+
+* Risk Rate Calculations
+
+* Multi-Factor Analysis
+
+---
+
+## Analysis Performed
+
+### 1. Stroke Distribution
+
+Determined overall stroke prevalence within the dataset.
+
+### 2. Age and Stroke Risk
+
+Compared stroke rates across multiple age groups.
+
+### 3. Hypertension Analysis
+
+Measured stroke occurrence among patients with and without hypertension.
+
+### 4. Heart Disease Analysis
+
+Evaluated the impact of heart disease on stroke risk.
+
+### 5. Combined Risk Factor Analysis
+
+Investigated the interaction between hypertension and heart disease.
+
+### 6. Gender-Based Analysis
+
+Compared stroke rates between male and female patients.
+
+### 7. Smoking Status Analysis
+
+Examined stroke prevalence across smoking categories.
+
+### 8. Glucose Level Investigation
+
+Identified patients with the highest recorded glucose levels.
+
+### 9. Residence Type Distribution
+
+Compared urban and rural patient populations.
+
+---
 
 ## Key Findings
 
-### Stroke Distribution
-
-Out of 5,110 patient records:
-
-* 4,861 patients (95.13%) did not experience a stroke
-* 249 patients (4.87%) experienced a stroke
-
-### Age and Stroke Risk
-
-Average age by stroke status:
-
-| Stroke Status | Average Age |
-| ------------- | ----------- |
-| No Stroke     | 41.97 years |
-| Stroke        | 67.73 years |
-
-Patients who experienced a stroke were significantly older on average, suggesting age is a major risk factor.
-
-### Hypertension and Stroke
-
-| Hypertension | Patients | Stroke Cases |
-| ------------ | -------- | ------------ |
-| No           | 4,612    | 183          |
-| Yes          | 498      | 66           |
-
-Although only 498 patients had hypertension, they accounted for 66 stroke cases. This suggests hypertension may be strongly associated with increased stroke risk.
-
-### Smoking Status Distribution
-
-| Smoking Status  | Patients |
-| --------------- | -------- |
-| Never Smoked    | 1,892    |
-| Unknown         | 1,544    |
-| Formerly Smoked | 885      |
-| Smokes          | 789      |
-
-Most patients reported never smoking, while a large number of records contained unknown smoking status values.
-
-### Gender and Stroke Risk
-
-| Gender | Stroke Cases | Total Patients | Stroke Rate |
-|----------|----------:|----------:|----------:|
-| Male | 108 | 2115 | 5.11% |
-| Female | 141 | 2994 | 4.71% |
-
-Although females represented a larger proportion of the dataset, males showed a slightly higher stroke rate (5.11% vs 4.71%).
-
-### Smoking Status and Stroke Risk
-
-| Smoking Status | Stroke Rate |
-|---------------|------------:|
-| Formerly Smoked | 7.91% |
-| Smokes | 5.32% |
-| Never Smoked | 4.76% |
-| Unknown | 3.04% |
-
-Former smokers showed the highest observed stroke rate in the dataset. This relationship may be influenced by age and other health factors, requiring further investigation.
-
-### Smoking Status, Age and Stroke Risk
-
-| Smoking Status | Stroke Rate | Average Age |
-|---------------|------------:|------------:|
-| Formerly Smoked | 7.91% | 54.93 |
-| Smokes | 5.32% | 47.10 |
-| Never Smoked | 4.76% | 46.74 |
-| Unknown | 3.04% | 30.23 |
-
-Former smokers exhibited the highest stroke rate in the dataset. However, they also had the highest average age, suggesting age may be a contributing factor to the increased stroke prevalence observed in this group.
-
-### Age Group and Stroke Risk
+### Age Is the Strongest Predictor
 
 | Age Group | Stroke Rate |
-|-----------|------------:|
-| 70+ | 17.75% |
-| 50–69 | 6.53% |
-| 30–49 | 1.30% |
-| Under 30 | 0.13% |
+| --------- | ----------- |
+| Under 30  | 0.13%       |
+| 30-49     | 1.30%       |
+| 50-69     | 6.53%       |
+| 70+       | 17.75%      |
 
-Stroke prevalence increased sharply with age. Patients aged 70 and above exhibited the highest stroke rate (17.75%), while patients under 30 showed a very low stroke rate (0.13%). Age appears to be the strongest risk factor identified in this analysis.
+Patients aged 70+ showed dramatically higher stroke prevalence than younger populations.
 
-## Key Insights
+---
 
-### Age is the strongest predictor
-Patients aged 70+ showed a stroke rate of 17.75%, compared with only 0.13% among patients younger than 30.
+### Heart Disease Significantly Increases Risk
 
-### Heart disease significantly increases risk
-Patients with heart disease experienced a stroke rate of 17.03%, compared with 4.18% for those without heart disease.
+| Heart Disease | Stroke Rate |
+| ------------- | ----------- |
+| No            | 4.18%       |
+| Yes           | 17.03%      |
 
-### Hypertension + Heart Disease = Highest Risk Group
-Patients suffering from both conditions exhibited a stroke rate of 20.31%.
+Patients with heart disease experienced over four times the stroke risk compared with patients without heart disease.
 
-### Smoking history matters
-Former smokers demonstrated the highest stroke rate (7.91%), followed by current smokers (5.32%).
+---
 
-### Gender differences are minor
-Male patients showed a slightly higher stroke rate (5.11%) than female patients (4.71%).
+### Hypertension + Heart Disease Represents the Highest-Risk Group
 
-### Dataset Characteristics
-- 5,110 patient records
-- 249 stroke cases
-- 4,861 non-stroke cases
-- Balanced urban and rural representation
+| Hypertension | Heart Disease | Stroke Rate |
+| ------------ | ------------- | ----------- |
+| Yes          | Yes           | 20.31%      |
+| No           | Yes           | 16.04%      |
+| Yes          | No            | 12.21%      |
+| No           | No            | 3.39%       |
 
-## Current Progress
+The combination of hypertension and heart disease produced the highest observed stroke rate.
 
-✅ PostgreSQL database created
-✅ Dataset imported
-✅ Database created
-✅ SQL queries written
-✅ Insights generated
-✅ README started
+---
 
+### Smoking History Matters
 
+| Smoking Status  | Stroke Rate |
+| --------------- | ----------- |
+| Formerly Smoked | 7.91%       |
+| Smokes          | 5.32%       |
+| Never Smoked    | 4.76%       |
+| Unknown         | 3.04%       |
 
-## Objectives
+Former smokers exhibited the highest stroke prevalence.
 
-- Analyze patient demographics
-- Evaluate treatment performance
-- Compare treatment outcomes
-- Practice SQL-based data analysis
-- Build a healthcare analytics portfolio project
+---
 
-## Tools Used
+### Gender Differences Are Small
 
-- PostgreSQL
-- SQL
-- GitHub
+| Gender | Stroke Rate |
+| ------ | ----------- |
+| Male   | 5.11%       |
+| Female | 4.71%       |
+
+Male patients showed slightly higher stroke rates than female patients.
+
+---
 
 ## Project Structure
 
-clinical-trial-data-analysis
+```text
+Stroke_risk_analysis/
 │
-├── data
-├── sql_queries
-├── results
+├── data/
+│   └── healthcare-dataset-stroke-data.csv
+│
+├── sql_queries/
+│   └── analysis.sql
+│
+├── results/
+│   ├── findings.md
+│   └── visualizations
+│
 └── README.md
+```
+
+---
+
+## Future Improvements
+
+Planned enhancements include:
+
+* Advanced SQL joins and subqueries
+* SQL Views
+* Window Functions
+* Dashboard development using Power BI
+* Predictive analytics using Python and Pandas
+* Machine Learning-based stroke prediction models
+
+---
 
 ## Project Status
 
-🚧 In Progress
+🚧 Advanced SQL Analysis in Progress
+
+---
 
 ## Author
 
-Ayan Goswami
+**Ayan Goswami**
+
 M.Sc. Biotechnology
-Aspiring Data Analyst
+
+Aspiring Healthcare Data Analyst | SQL | PostgreSQL | Data Analytics
